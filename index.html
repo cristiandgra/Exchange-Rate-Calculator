@@ -17,6 +17,7 @@
     <h1>Exchange Rate Calculator</h1>
     <p>Choose the currency and the amounts to get the exchange rate</p>
     <div class="container">
+      <div id="loading"></div>
       <div class="currency">
         <select id="currency-one">
           <option value="AED">AED</option>
@@ -81,8 +82,6 @@
           oninput="if(this.value<0)this.value=1"
         />
       </div>
-
-      <div id="loading"></div>
 
       <div class="swap-rate-container">
         <button class="btn" id="swap">Swap</button>
