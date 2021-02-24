@@ -13,10 +13,10 @@
       alt="img"
       class="money-img"
     />
-
     <h1>Exchange Rate Calculator</h1>
     <p>Choose the currency and the amounts to get the exchange rate</p>
     <div class="container">
+      <div id="loading"></div>
       <div class="currency">
         <select id="currency-one">
           <option value="AED">AED</option>
@@ -82,13 +82,10 @@
         />
       </div>
 
-      <div id="loading"></div>
-
       <div class="swap-rate-container">
         <button class="btn" id="swap">Swap</button>
         <div class="rate" id="rate"></div>
       </div>
-
       <div class="currency">
         <select id="currency-two">
           <option value="AED">AED</option>
