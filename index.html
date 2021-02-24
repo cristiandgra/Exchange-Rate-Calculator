@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exchange Rate Calculator</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </head>
   <body>
     <img
@@ -86,6 +87,7 @@
         <button class="btn" id="swap">Swap</button>
         <div class="rate" id="rate"></div>
       </div>
+
       <div class="currency">
         <select id="currency-two">
           <option value="AED">AED</option>
@@ -147,7 +149,6 @@
           placeholder="0"
           min="0"
           onkeyup="if(this.value<0)this.value=1"
-          onblur="if(this.value<0)this.value=1"
         />
       </div>
     </div>

@@ -18,24 +18,27 @@ function calculate() {
   displayLoading();
   const currency_one = currencyEl_one.value;
   const currency_two = currencyEl_two.value;
-  try {
-    fetch(`https://api.exchangerate-api.com/v4/latest/${currency_one}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
 
-        const rate = data.rates[currency_two];
+  fetch(`https://api.exchangerate-api.com/v4/latest/${currency_one}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
 
-        rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+      const rate = data.rates[currency_two];
 
-        amountEl_two.value = (amountEl_one.value * rate).toFixed(4);
+      rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+
+      amountEl_two.value = (amountEl_one.value * rate).toFixed(4);
+    })
+    .catch((error) => {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "There was an error communicating with the API.",
       });
-  } catch (error) {
-    console.log(error);
-    alert(
-      "There was an error communicating with the service. Try again later."
-    );
-  }
+
+      console.error(error);
+    });
 }
 
 currencyEl_one.addEventListener("change", calculate);
